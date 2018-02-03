@@ -1,0 +1,4 @@
+#!/bin/bash
+# Designed by Tim Perkins on 11/5/98
+
+cat /etc/motd | more

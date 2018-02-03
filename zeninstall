@@ -1,0 +1,30 @@
+#!/bin/bash
+FOO=$PWD
+echo "#!/usr/bin/perl" > $FOO/prak
+echo "\$foo = <STDIN>;" >> $FOO/prak
+chmod 755 prak
+echo "the neurotic organization"
+echo "the linux zen modifications"
+echo "created by: tim perkins"
+echo "greetz goto: redcoat, renata, reaper, kalypso, exocet, jess, nully,"
+echo "             and a few others, if i left you out and you should have"
+echo "             been greeted, i greet you now. your just to special to"
+echo "             be on this list. :)"
+echo "Press return to continue"
+$FOO/prak
+echo "This program will install the linux zen mod's into /etc/zen."
+echo "To continue, press enter or to break out hit control-c"
+$FOO/prak
+echo "Woot!!! Another Zen Installation" | mail -s 'woot!' zenmaster@neurotic.org
+tar zxvf zen.tar.gz
+mv zen /etc
+echo "Done!  Now modify /etc/zen/ips/machine_ips if you want the vhosts script"
+echo "to work, and modify your global bashrc and profile (usually /etc/bashrc"
+echo "and /etc/profile) and add /etc/zen to your PATH variable and have the"
+echo "bashrc source /etc/zen/zenscheme (read the README for more info on how"
+echo "to do this).  Also, if you make ANY changes, please e-mail Tim at"
+echo "tperkins@neurotic.org and drop him a note of what you did, or attach"
+echo "any schemes/prompts that you've made and he just might include it in"
+echo "the next release."
+rm $FOO/prak
+

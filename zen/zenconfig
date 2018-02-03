@@ -1,0 +1,113 @@
+#!/usr/bin/perl
+# Created by Tim Perkins - 11/5/98
+# pheer this script.
+
+$zenversion = "0.1";
+
+$ice1="[1;30m";
+$ice2="[0;37m";
+$ice3="[0;36m";
+$ice4="[1;36m";
+$water1="[1;30m";
+$water2="[0;37m";
+$water3="[0;34m";
+$water4="[1;34m";
+$fire1="[1;30m";
+$fire2="[0;37m";
+$fire3="[0;31m";
+$fire4="[1;31m";
+$wheat1="[1;30m";
+$wheat2="[0;37m";
+$wheat3="[0;33m";
+$wheat4="[1;33m";
+$grass1="[1;30m";
+$grass2="[0;37m";
+$grass3="[0;32m";
+$grass4="[1;32m";
+$haze1="[1;30m";
+$haze2="[0;37m";
+$haze3="[0;35m";
+$haze4="[1;35m";
+
+print "\n\nWe have some DOS commands aliased like:\n";
+print "dir='ls -al'\n";
+print "d='ls'\n";
+print "copy='cp'\n";
+print "xcopy='cp -r'\n";
+print "del='rm'\n";
+print "deltree='rm -rf'\n";
+print "tree='du'\n";
+print "mem='ps u'\n";
+print "md='mkdir'\n";
+print "rd='rmdir'\n";
+print "\nAre you going to want these (y/N)? ";
+$wantdos = <STDIN>;
+if ($wantdos =~ /^y/i) {
+  $wantdos = "yes";
+} else {
+  $wantdos = "no";
+}
+
+print "\nHere are some prompts:\n\n";
+print "elite \=\= \[root\#zen\]\:\:\/root\>\n";
+print "neato \=\= \:\(root\#zen \/root\)\:\n";
+print "sysv  \=\= zen:/root#\n";
+print "linux \=\= \[root\@zen root\]\#\n";
+print "\nWhat prompt do ya want (default is linux)? ";
+$whatprompt = <STDIN>;
+if ($whatprompt =~ /^e/i) {
+  $whatprompt = "elite";
+} elsif ($whatprompt =~ /^n/i) {
+  $whatprompt = "neato";
+} elsif ($whatprompt =~ /^s/i) {
+  $whatprompt = "sysv";
+} else {
+  $whatprompt = "linux";
+}
+
+
+print "\nAre you going to want color (y/N)? ";
+$wantcolor = <STDIN>;
+if ($wantcolor =~ /^y/i) {
+  $wantcolor = "yes";
+} else {
+  $wantcolor = "no";
+}
+
+if ($wantcolor =~ "yes") {
+  print "\nHere are some schemes:\n\n";
+  print "${ice1}ice ${ice2}ice ${ice3}ice ${ice4}ice\n";
+  print "${water1}water ${water2}water ${water3}water ${water4}water\n";
+  print "${fire1}fire ${fire2}fire ${fire3}fire ${fire4}fire\n";
+  print "${wheat1}wheat ${wheat2}wheat ${wheat3}wheat ${wheat4}wheat\n";
+  print "${grass1}grass ${grass2}grass ${grass3}grass ${grass4}grass\n";
+  print "${haze1}haze ${haze2}haze ${haze3}haze ${haze4}haze\n";
+  print "\n[0mWhat scheme do ya want (default is ice)? ";
+  $whatscheme = <STDIN>;
+}
+
+if ($whatscheme =~ /^i/i) {
+  $whatscheme = "ice";
+} elsif ($whatscheme =~ /^wa/i) {
+  $whatscheme = "water";
+} elsif ($whatscheme =~ /^f/i) {
+  $whatscheme = "fire";
+} elsif ($whatscheme =~ /^wh/i) {
+  $whatscheme = "wheat";
+} elsif ($whatscheme =~ /^g/i) {
+  $whatscheme = "grass";
+} elsif ($whatscheme =~ /^h/i) {
+  $whatscheme = "haze";
+} else {
+  $whatscheme = "ice";
+}
+
+system("echo \"ZEN_VERSION=$zenversion\" > \$HOME/.zen.config");
+system("echo \"ZEN_WANT_DOS=$wantdos\" >> \$HOME/.zen.config");
+system("echo \"ZEN_WHAT_PROMPT=$whatprompt\" >> \$HOME/.zen.config");
+system("echo \"ZEN_WANT_COLOR=$wantcolor\" >> \$HOME/.zen.config");
+system("echo \"ZEN_WHAT_SCHEME=$whatscheme\" >> \$HOME/.zen.config");
+system("echo \"export ZEN_VERSION ZEN_WANT_DOS ZEN_WHAT_PROMPT ZEN_WANT_COLOR ZEN_WHAT_SCHEME\" >> \$HOME/.zen.config");
+
+print "\nOk, now logout and log back on and all the changes you've made should\n";
+print "be in effect.\n";

@@ -1,0 +1,65 @@
+#!/bin/bash
+# Currently, this is the heart of zen.... if you mod these scripts
+# drop me a line, at tperkins@neurotic.org.
+# Created by: Tim Perkins
+
+if [ -f $HOME/.zen.config ]; then
+. $HOME/.zen.config
+else
+/etc/zen/zenconfig
+fi
+
+. $HOME/.zen.config
+
+# Want DOS aliases?
+if [ "$ZEN_WANT_DOS" = "yes" ]; then
+  . /etc/zen/aliases/dos
+fi
+
+# Want color?
+if [ "$ZEN_WANT_COLOR" = "yes" ]; then
+ alias ls='ls --color=tty'
+# Ok... they want color... so what scheme?
+ if [ "$ZEN_WHAT_SCHEME" = "ice" ]; then
+  . /etc/zen/schemes/ice.scheme
+ elif [ "$ZEN_WHAT_SCHEME" = "water" ]; then
+  . /etc/zen/schemes/water.scheme
+ elif [ "$ZEN_WHAT_SCHEME" = "fire" ]; then
+  . /etc/zen/schemes/fire.scheme
+ elif [ "$ZEN_WHAT_SCHEME" = "wheat" ]; then
+  . /etc/zen/schemes/wheat.scheme
+ elif [ "$ZEN_WHAT_SCHEME" = "grass" ]; then
+  . /etc/zen/schemes/grass.scheme
+ elif [ "$ZEN_WHAT_SCHEME" = "haze" ]; then
+  . /etc/zen/schemes/haze.scheme
+ else
+  . /etc/zen/schemes/ice.scheme
+ fi
+# Okie... got the color scheme now... what prompt?
+ if [ "$ZEN_WHAT_PROMPT" = "elite" ]; then
+  . /etc/zen/prompts/elite.prompt.color
+ elif [ "$ZEN_WHAT_PROMPT" = "neato" ]; then
+  . /etc/zen/prompts/neato.prompt.color
+ elif [ "$ZEN_WHAT_PROMPT" = "sysv" ]; then
+  . /etc/zen/prompts/sysv.prompt.color
+ else
+  . /etc/zen/prompts/linux.prompt.color
+ fi
+# Ok, now export the colors and prompt
+ export C1 C2 C3 C4 C5 PS1 LS_COLORS
+
+else
+# Eww no color... ok... so we just disable color related shit :b
+ alias ls='ls'
+# Get the prompt
+ if [ "$ZEN_WHAT_PROMPT" = "elite" ]; then
+  . /etc/zen/prompts/elite.prompt
+ elif [ "$ZEN_WHAT_PROMPT" = "neato" ]; then
+  . /etc/zen/prompts/neato.prompt
+ elif [ "$ZEN_WHAT_PROMPT" = "sysv" ]; then
+  . /etc/zen/prompts/sysv.prompt
+ else
+  . /etc/zen/prompts/linux.prompt
+ fi
+ export PS1
+fi

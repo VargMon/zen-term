@@ -1,0 +1,24 @@
+#!/usr/bin/perl
+# Created by:  Tim Perkins
+
+require "ctime.pl";
+$AF_INET=2;
+@order = (@order, split(/\n/,`cat /etc/zen/ips/machine_ips`));
+
+print "-------------------------------------------------------\n";
+print "IP              | DNS\n";
+print "-------------------------------------------------------\n";
+format STDOUT =
+@<<<<<<<<<<<<<< | @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+$ip, $host_name
+.
+foreach (@order) {
+  $ip = $_;
+  $ipaddr = pack("C4",split(/\./,$ip));
+  ($host_name, $aliases, $addrtype, $length, @addrs) = gethostbyaddr ($ipaddr, $AF_INET);
+  write;
+}
+format STDOUT =
+@<<<<<<<<<<<<<< | @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+$ip, $host_name
+.

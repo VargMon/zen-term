@@ -1,0 +1,30 @@
+# /etc/profile
+
+# System wide environment and startup programs
+# Functions and aliases go in /etc/bashrc
+
+PATH="$PATH:.:/sbin:/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/X11R6/bin:/usr/games:/usr/local/games:/etc/scripts"
+
+ulimit -c 1000000
+if [ `id -gn` = `id -un` -a `id -u` -gt 14 ]; then
+        umask 002
+else
+        umask 022
+fi
+
+USER=`id -un`
+LOGNAME=$USER
+MAIL="/var/spool/mail/$USER"
+
+HOSTNAME=`/bin/hostname`
+HISTSIZE=1000
+HISTFILESIZE=1000
+export PATH C1 C2 C3 C4 C5 C6 PS1 LS_COLORS HOSTNAME HISTSIZE HISTFILESIZE USER LOGNAME MAIL
+
+for i in /etc/profile.d/*.sh ; do
+        if [ -x $i ]; then
+                . $i
+        fi
+done
+
+unset i

@@ -1,0 +1,7 @@
+# /etc/bashrc
+
+. /etc/scripts/zodiacscheme
+
+alias which="type -path"
+
+biff y

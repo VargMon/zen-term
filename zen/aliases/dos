@@ -1,0 +1,31 @@
+#!/bin/sh
+
+#
+# This gives DOS-like CMD prompt shell.
+# For those who want to run commands like those on old DOS systems.
+#
+
+#lowercase aliases
+alias dir='ls -al'
+alias d='ls'
+alias copy='cp'
+alias xcopy='cp -r'
+alias del='rm'
+alias deltree='rm -r'
+alias tree='du'
+alias mem='ps u'
+alias md='mkdir'
+alias rd='rmdir'
+
+#upercase aliases
+alias DIR='ls -al'
+alias D='ls'
+alias COPY='cp'
+alias XCOPY='cp -r'
+alias DEL='rm'
+alias DELTREE='rm -r'
+alias TREE='du'
+alias MEM='ps u'
+alias MD='mkdir'
+alias RD='rmdir'
+

@@ -1,0 +1,62 @@
+= the linux zen modifications
+- the neurotic organization
++ our first release.  made by tim perkins <tperkins@neurotic.org>,
+  released under the GPL.
+
+* intro
+   thank's for choosing to download then linux zen modifications.
+   as of v.0.1b all the zen modifications do is provide a really
+   neat color/prompt scheme mechanism, a script called 'motd'
+   that just display's your message of the day, and a script called
+   'vhosts' which will check a list ip's you specify and create
+   a pretty table of the ip and what the dns lookup of the ip is.
+   the zen mod's also include some aliasing features. v.0.1b only
+   include's MS-DOS command's aliased to unix commands.  future
+   release's might include IRC aliases and a few others.
+   below, are some frequently asked questions.
+   - what are these 'zen mods' programmed in?
+      perl and bash.
+   - why would i want to use them?
+      they make your linux box a bit easier to use for dos users.
+      they also make your box elite. ;)
+   - how system intensive are they?
+      not very. i'd say that if your computer is anything recent
+      that you wouldn't even notice when someone runs the
+      configuration utility.
+
+* intructions
+   there are two ways to install the zen mod's.  the first is to
+   use the 'zeninstall' script that i have included.  the other
+   way is to install them by hand.  i'll try to describe both
+   ways.
+   - way 1
+      decompress zen-0.x.tar.gz (which i assume you've already
+      done since your reading this).  run the zeninstall script
+      that i have included.  modify the /etc/zen/ips/machine_ips
+      file and put all of your ip's in it (or at least the ones
+      that you want to show up on the 'vhosts' command). now you
+      need to modify your global bashrc and profile. (i have
+      included mine as examples).  usually these files are located
+      in /etc/bashrc and /etc/profile (at least on redhat 5.x).
+   - way 2
+      just in case my 'zeninstall' script doesn't work, you can
+      ungzip and 'tar xvf' the zen.tar.gz (that should be in the
+      directory that this README is in.  then move then 'zen'
+      folder to /etc.  modify the machine_ips (in /etc/zen/ips),
+      modify your global bashrc and global bash profile. and voila
+      your done.
+
+* comments
+   zen is far from being complete.  check back often for updates,
+   since this is going to be an on going project.  if you want to 
+   help PLEASE, PLEASE e-mail Tim <tperkins@neurotic.org> with
+   idea's or what you can do to help.
+
+* version comments
+  - 0.1b
+     i forgot to include the bashrc and profile examples that i
+     said i included... whoops :)
+  - 0.1
+     first release of the zen mods.
+
+EOF
